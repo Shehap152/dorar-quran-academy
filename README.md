@@ -10,7 +10,7 @@ A beautiful, fully responsive Islamic-themed website for "Dorar Al-Quran Academy
 - **Islamic Patterns**: Subtle decorative elements and backgrounds
 - **Spiritual Atmosphere**: Peaceful and respectful design elements
 
-### 📱 Fully Responsive
+###  Fully Responsive
 - Mobile-first design approach
 - Responsive across all screen sizes
 - Optimized for tablets, phones, and desktops
