@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>أكاديمية دُرر القرآن - Dorar Al-Quran Academy</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Google Fonts - Arabic Islamic Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cairo:wght@300;400;600;700&family=Scheherazade+New:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="islamic-theme">
+    <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+        <div class="container">
+            <a class="navbar-brand" href="#home">
+                <i class="fas fa-mosque me-2"></i>
+                <span class="arabic-title logo-white">أكاديمية دُرر القرآن</span>
+            </a>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#home">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">عن الأكاديمية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#tracks">المسارات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#services">الخدمات</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contact">اتصل بنا</a>
+                    </li>
+                </ul>
+                
+                <!-- Language and Theme Toggles -->
+                <div class="navbar-nav ms-auto">
+                    <div class="nav-item">
+                        <button class="btn btn-outline-light" id="themeToggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home" class="hero-section new-hero-design">
+      <div class="container-fluid">
+        <div class="row align-items-center justify-content-center min-vh-100 flex-lg-row flex-column">
+          <div class="col-lg-6 d-flex justify-content-center align-items-center mb-4 mb-lg-0 order-lg-1 order-2">
+            <div class="hero-card hero-card-large">
+              <h1 class="main-title mb-2">
+                <span class="arabic-title">أكاديمية دُرر القرآن</span>
+                <span class="english-subtitle">Dorar Al-Quran - Quran Academy</span>
+              </h1>
+              <p class="hero-description mt-3 mb-4">
+                نرحب بكم في أكاديمية دُرر القرآن، حيث نقدم تعليماً متميزاً لحفظ وتجويد القرآن الكريم تحت إشراف معلمين متخصصين ومؤهلين.
+              </p>
+              <div class="hero-buttons d-flex flex-wrap justify-content-center gap-3">
+                <a href="#tracks" class="btn btn-primary btn-lg" role="button">
+                  <i class="fas fa-book-open me-2"></i>
+                  ابدأ رحلتك
+                </a>
+                <a href="#about" class="btn btn-outline-primary btn-lg" role="button">
+                  <i class="fas fa-info-circle me-2"></i>
+                  تعرف علينا
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 d-flex justify-content-center align-items-center order-lg-2 order-1">
+            <div class="hero-image-arch-frame hero-image-large position-relative">
+              <div class="hero-arch-bg"></div>
+              <img src="image/girl-1.png" alt="طالبة تحفظ القرآن" class="hero-image-arched hero-image-arched-large">
+              <div class="hero-motif"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section redesigned-about-section">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                <div class="col-lg-5 mb-4 mb-lg-0 position-relative">
+                    <div class="about-image-card">
+                        <img src="image/girl-2.png" alt="طالبة تدرس القرآن" class="about-image">
+                        <div class="about-image-motif"></div>
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="about-card">
+                        <h2 class="section-title mb-2">
+                            <i class="fas fa-mosque me-3"></i>
+                            عن أكاديمية دُرر القرآن
+                        </h2>
+                        <div class="about-title-accent"></div>
+                        <div class="about-content mt-4">
+                            <h3 class="about-subtitle vision">رؤيتنا</h3>
+                            <p class="about-text">
+                                نسعى لتقديم تعليم متميز للقرآن الكريم، وإعداد جيل من الحفاظ والمجودين الذين يحملون رسالة الإسلام بصدق وإخلاص.
+                            </p>
+                            <h3 class="about-subtitle mission">مهمتنا</h3>
+                            <p class="about-text">
+                                توفير بيئة تعليمية إسلامية آمنة ومحفزة، حيث يتعلم الطلاب حفظ القرآن الكريم مع تطبيق قواعد التجويد والترتيل الصحيحة.
+                            </p>
+                            <div class="about-features-row mt-4">
+                                <div class="feature-item">
+                                    <i class="fas fa-star"></i>
+                                    <span>معلمون متخصصون</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-star"></i>
+                                    <span>مناهج معتمدة</span>
+                                </div>
+                                <div class="feature-item">
+                                    <i class="fas fa-star"></i>
+                                    <span>بيئة إسلامية</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tracks Section -->
+    <section id="tracks" class="tracks-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">
+                        <i class="fas fa-graduation-cap me-3"></i>
+                        مسارات التعلم
+                    </h2>
+                    <div class="title-decoration"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="track-card">
+                        <div class="card-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <h3>حفظ القرآن الكريم</h3>
+                        <p>برنامج متكامل لحفظ القرآن الكريم كاملاً مع التطبيق العملي لقواعد التجويد.</p>
+                        <ul class="track-features">
+                            <li><i class="fas fa-check"></i> حفظ تدريجي</li>
+                            <li><i class="fas fa-check"></i> مراجعة مستمرة</li>
+                            <li><i class="fas fa-check"></i> اختبارات دورية</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="track-card">
+                        <div class="card-icon">
+                            <i class="fas fa-microphone"></i>
+                        </div>
+                        <h3>التجويد والترتيل</h3>
+                        <p>تعلم قواعد التجويد النظرية والعملية مع تطبيقها على النصوص القرآنية.</p>
+                        <ul class="track-features">
+                            <li><i class="fas fa-check"></i> قواعد التجويد</li>
+                            <li><i class="fas fa-check"></i> التطبيق العملي</li>
+                            <li><i class="fas fa-check"></i> تصحيح النطق</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="track-card">
+                        <div class="card-icon">
+                            <i class="fas fa-certificate"></i>
+                        </div>
+                        <h3>برنامج الإجازة</h3>
+                        <p>إجازة في رواية حفص عن عاصم مع سند متصل إلى رسول الله صلى الله عليه وسلم.</p>
+                        <ul class="track-features">
+                            <li><i class="fas fa-check"></i> سند متصل</li>
+                            <li><i class="fas fa-check"></i> إجازة معتمدة</li>
+                            <li><i class="fas fa-check"></i> شهادة رسمية</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="services-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-5">
+                    <h2 class="section-title">
+                        <i class="fas fa-hands-helping me-3"></i>
+                        خدماتنا
+                    </h2>
+                    <div class="title-decoration"></div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-user-graduate"></i>
+                        </div>
+                        <h4>تعليم فردي</h4>
+                        <p>دروس خصوصية مخصصة حسب مستوى الطالب وقدراته.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <h4>مجموعات صغيرة</h4>
+                        <p>فصول دراسية صغيرة تضمن الاهتمام الفردي بكل طالب.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-laptop"></i>
+                        </div>
+                        <h4>تعليم عن بعد</h4>
+                        <p>دروس عبر الإنترنت للطلاب في جميع أنحاء العالم.</p>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 mb-4">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-calendar-alt"></i>
+                        </div>
+                        <h4>برامج صيفية</h4>
+                        <p>مخيمات صيفية مكثفة لحفظ القرآن وتجويده.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section redesigned-contact-section">
+      <div class="container">
+        <div class="contact-card row align-items-center justify-content-center">
+          <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+            <form id="contactForm" class="contact-form">
+              <h2 class="section-title mb-4">
+                <i class="fas fa-envelope me-3"></i>
+                اتصل بنا
+              </h2>
+              <div class="row">
+                <div class="col-md-6 mb-3">
+                  <input type="text" class="form-control" placeholder="الاسم الكامل" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                  <input type="email" class="form-control" placeholder="البريد الإلكتروني" required>
+                </div>
+              </div>
+              <div class="mb-3">
+                <input type="tel" class="form-control" placeholder="رقم الهاتف">
+              </div>
+              <div class="mb-3">
+                <textarea class="form-control" rows="5" placeholder="رسالتك" required></textarea>
+              </div>
+              <div class="text-center">
+                <button type="submit" class="btn btn-primary btn-lg">
+                  <i class="fas fa-paper-plane me-2"></i>
+                  إرسال الرسالة
+                </button>
+              </div>
+            </form>
+          </div>
+          <div class="col-lg-1 d-none d-lg-flex justify-content-center align-items-center">
+            <div class="contact-divider">أو</div>
+          </div>
+          <div class="col-lg-5 order-lg-1">
+            <div class="contact-social-panel">
+              <h4 class="mb-4 text-center">تواصل معنا عبر</h4>
+              <div class="social-links flex-column flex-lg-column align-items-center gap-4">
+                <a href="https://wa.me/201108278362" target="_blank" rel="noopener noreferrer" class="social-link whatsapp">
+                  <i class="fab fa-whatsapp"></i>
+                  <span>واتساب</span>
+                </a>
+                <a href="https://www.facebook.com/share/16R62V8seG/" target="_blank" rel="noopener noreferrer" class="social-link facebook">
+                  <i class="fab fa-facebook-f"></i>
+                  <span>فيسبوك</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">
+                        <i class="fas fa-mosque me-2"></i>
+                        أكاديمية دُرر القرآن
+                    </h5>
+                    <p class="footer-description">
+                        نقدم تعليماً متميزاً للقرآن الكريم في بيئة إسلامية آمنة ومحفزة.
+                    </p>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">روابط سريعة</h5>
+                    <ul class="footer-links">
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#about">عن الأكاديمية</a></li>
+                        <li><a href="#tracks">المسارات</a></li>
+                        <li><a href="#services">الخدمات</a></li>
+                        <li><a href="#contact">اتصل بنا</a></li>
+                    </ul>
+                </div>
+                <div class="col-lg-4 mb-4">
+                    <h5 class="footer-title">معلومات الاتصال</h5>
+                    <div class="contact-info">
+                        <p><i class="fas fa-map-marker-alt me-2"></i> جمهورية مصر العربية</p>
+                        <p><i class="fas fa-phone me-2"></i> 201108278362+</p>
+                        <p><i class="fas fa-envelope me-2"></i> doraracademy@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <hr class="footer-divider">
+            <div class="row">
+                <div class="col-12 text-center">
+                    <p class="footer-copyright">
+                        جميع الحقوق محفوظة © 2025 أكاديمية دُرر القرآن
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html> 
