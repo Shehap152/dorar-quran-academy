@@ -1,10 +1,10 @@
-# 🕌 أكاديمية دُرر القرآن - Dorar Al-Quran Academy
+#  أكاديمية دُرر القرآن - Dorar Al-Quran Academy
 
 A beautiful, fully responsive Islamic-themed website for "Dorar Al-Quran Academy" built with HTML, CSS, JavaScript, and Bootstrap.
 
-## ✨ Features
+##  Features
 
-### 🎨 Islamic Design Theme
+###  Islamic Design Theme
 - **Islamic Color Palette**: Green, beige, gold, and white colors
 - **Arabic Typography**: Uses Amiri, Cairo, and Scheherazade fonts
 - **Islamic Patterns**: Subtle decorative elements and backgrounds
@@ -15,64 +15,64 @@ A beautiful, fully responsive Islamic-themed website for "Dorar Al-Quran Academy
 - Responsive across all screen sizes
 - Optimized for tablets, phones, and desktops
 
-### 🌙 Theme Switching
+###  Theme Switching
 - Light/Dark theme toggle
 - Persistent theme preference
 - Smooth transitions between themes
 
-### 🌍 Language Support
+###  Language Support
 - Arabic/English language switching
 - RTL/LTR layout support
 - Complete content translation
 
-### 🎭 Interactive Elements
+###  Interactive Elements
 - Smooth scrolling navigation
 - Hover effects and animations
 - Quran page flip animation
 - Glowing light effects
 - Parallax scrolling
 
-## 📋 Sections
+##  Sections
 
-### 1. 🏠 Home Section
+### 1.  Home Section
 - Large Arabic title with English subtitle
 - Introduction about the academy
 - Animated Quran book with page flipping
 - Glowing light effects
 - Call-to-action buttons
 
-### 2. 📖 About Section
+### 2.  About Section
 - Mission and vision statements
 - Islamic background patterns
 - Feature highlights with icons
 - Student image display
 
-### 3. 🎓 Learning Tracks
+### 3.  Learning Tracks
 - Three main learning paths:
   - **Quran Memorization**: Complete Quran memorization program
   - **Tajweed & Tilawah**: Proper recitation rules
   - **Ijazah Program**: Certification with connected chain
 - Interactive cards with hover effects
 
-### 4. 🛠️ Services
+### 4.  Services
 - Individual teaching
 - Small group classes
 - Online learning
 - Summer programs
 - Service cards with icons
 
-### 5. 📞 Contact Section
+### 5.  Contact Section
 - Contact form with validation
 - Social media links (WhatsApp, Telegram, Email)
 - Form submission notifications
 
-### 6. ⚙️ Footer
+### 6.  Footer
 - Quick navigation links
 - Contact information
 - Language and theme toggles
 - Copyright information
 
-## 🛠️ Technologies Used
+##  Technologies Used
 
 - **HTML5**: Semantic markup
 - **CSS3**: Modern styling with CSS Grid and Flexbox
@@ -81,7 +81,7 @@ A beautiful, fully responsive Islamic-themed website for "Dorar Al-Quran Academy
 - **Font Awesome**: Icons
 - **Google Fonts**: Arabic typography
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 - Modern web browser
@@ -104,7 +104,7 @@ Durror Acadymic/
     └── girl-2.png      # About section image
 ```
 
-## 🎨 Design Features
+##  Design Features
 
 ### Color Scheme
 - **Primary Green**: #2E7D32 (Islamic green)
@@ -126,14 +126,14 @@ Durror Acadymic/
 - Hover effects on cards
 - Parallax scrolling
 
-## 📱 Responsive Breakpoints
+##  Responsive Breakpoints
 
 - **Mobile**: < 576px
 - **Tablet**: 576px - 768px
 - **Desktop**: > 768px
 - **Large Desktop**: > 992px
 
-## 🔧 Customization
+##  Customization
 
 ### Changing Colors
 Edit the CSS variables in `styles.css`:
@@ -155,7 +155,7 @@ Edit the CSS variables in `styles.css`:
 - Edit animation keyframes in `styles.css`
 - Adjust timing and effects in `script.js`
 
-## 🌐 Browser Support
+##  Browser Support
 
 - Chrome (latest)
 - Firefox (latest)
@@ -163,18 +163,18 @@ Edit the CSS variables in `styles.css`:
 - Edge (latest)
 - Mobile browsers
 
-## 📄 License
+##  License
 
 This project is created for educational and demonstration purposes.
 
-## 🤝 Contributing
+##  Contributing
 
 Feel free to submit issues and enhancement requests!
 
-## 📞 Contact
+##  Contact
 
 For questions or support, please contact the development team.
 
 ---
 
-**Built with ❤️ for Islamic education and Quran memorization** 
+**Built with  for Islamic education and Quran memorization** 
