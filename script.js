@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initializeContactForm();
     initializeNavbar();
     initializeLanguageSwitching();
+    initializeIslamicContent();
 });
 
 // Language Switching Functionality
@@ -239,7 +240,7 @@ function initializeAnimations() {
 
 // Contact Form Handling
 function initializeContactForm() {
-    const form = document.querySelector('#contactForm');
+    const form = document.querySelector('.beautiful-contact-form');
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
@@ -248,28 +249,65 @@ function initializeContactForm() {
             const formData = new FormData(form);
             const data = Object.fromEntries(formData);
             
+            // Get form inputs
+            const fullName = document.getElementById('fullName').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const phone = document.getElementById('phone').value.trim();
+            const message = document.getElementById('message').value.trim();
+            
             // Simple validation
-            if (!data.name || !data.email || !data.message) {
+            if (!fullName || !email || !message) {
                 showNotification('يرجى ملء جميع الحقول المطلوبة', 'error');
                 return;
             }
             
             // Email validation
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(data.email)) {
+            if (!emailRegex.test(email)) {
                 showNotification('يرجى إدخال بريد إلكتروني صحيح', 'error');
                 return;
+            }
+            
+            // Phone validation (optional but if provided, should be valid)
+            if (phone) {
+                const phoneRegex = /^[\+]?[0-9\s\-\(\)]{8,}$/;
+                if (!phoneRegex.test(phone)) {
+                    showNotification('يرجى إدخال رقم هاتف صحيح', 'error');
+                    return;
+                }
             }
             
             // Simulate form submission
             showNotification('جاري إرسال الرسالة...', 'info');
             
+            // Add loading state to submit button
+            const submitBtn = form.querySelector('.beautiful-submit-btn');
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>جاري الإرسال...';
+            submitBtn.disabled = true;
+            
             setTimeout(() => {
                 showNotification('تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.', 'success');
                 form.reset();
+                
+                // Reset button
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
             }, 2000);
         });
     }
+    
+    // Add hover effects for social contact links
+    const socialLinks = document.querySelectorAll('.social-contact-link');
+    socialLinks.forEach(link => {
+        link.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-3px) scale(1.02)';
+        });
+        
+        link.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+    });
 }
 
 // Notification System
@@ -502,3 +540,182 @@ btn.addEventListener('keydown', function(e) {
 });
 }
 document.addEventListener('DOMContentLoaded', initBackToTop); 
+
+// // Islamic Content Functionality
+// function initializeIslamicContent() {
+//     loadIslamicContent();
+// }
+
+// async function loadIslamicContent() {
+//     try {
+//         // Load content from JSON file
+//         const response = await fetch('content.json');
+//         if (!response.ok) {
+//             throw new Error('Failed to load content');
+//         }
+        
+//         const contentData = await response.json();
+        
+//         // Filter and get at least 8 unique items
+//         const randomItems = getRandomUniqueItems(contentData, 8, 8);
+        
+//         // Display the content as a slider
+//         displayIslamicContentSlider(randomItems);
+        
+//     } catch (error) {
+//         console.error('Error loading Islamic content:', error);
+//         showNotification('حدث خطأ في تحميل المحتوى الإسلامي', 'error');
+//     }
+// }
+
+// function getRandomUniqueItems(contentArray, minCount = 8, maxCount = 8) {
+//     // Remove duplicates and similar content
+//     const uniqueContent = removeDuplicates(contentArray);
+//     // If not enough, just return as many as possible
+//     const count = Math.min(Math.floor(Math.random() * (maxCount - minCount + 1)) + minCount, uniqueContent.length);
+//     // Shuffle and get random items
+//     const shuffled = shuffleArray([...uniqueContent]);
+//     return shuffled.slice(0, count);
+// }
+
+// function removeDuplicates(contentArray) {
+//     const seen = new Set();
+//     const unique = [];
+    
+//     for (const item of contentArray) {
+//         // Create a key based on content and type
+//         const key = `${item.type}-${item.content}`;
+        
+//         if (!seen.has(key)) {
+//             seen.add(key);
+//             unique.push(item);
+//         }
+//     }
+    
+//     return unique;
+// }
+
+// function shuffleArray(array) {
+//     const shuffled = [...array];
+//     for (let i = shuffled.length - 1; i > 0; i--) {
+//         const j = Math.floor(Math.random() * (i + 1));
+//         [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
+//     }
+//     return shuffled;
+// }
+
+// function displayIslamicContentSlider(items) {
+//     const grid = document.getElementById('islamicContentGrid');
+//     if (!grid) return;
+//     grid.innerHTML = '';
+
+//     // Slider wrapper
+//     const sliderWrapper = document.createElement('div');
+//     sliderWrapper.className = 'islamic-slider-wrapper';
+
+//     // Slides container
+//     const slidesContainer = document.createElement('div');
+//     slidesContainer.className = 'islamic-slider-slides';
+
+//     // Create slides
+//     items.forEach((item, index) => {
+//         const card = createContentCard(item, index);
+//         card.classList.add('islamic-slider-slide');
+//         if (index >= 3) card.style.display = 'none'; // Only show first 3
+//         slidesContainer.appendChild(card);
+//     });
+
+//     // Navigation controls
+//     const prevBtn = document.createElement('button');
+//     prevBtn.className = 'islamic-slider-nav prev';
+//     prevBtn.innerHTML = '<i class="fas fa-chevron-right"></i>';
+//     prevBtn.setAttribute('aria-label', 'السابق');
+
+//     const nextBtn = document.createElement('button');
+//     nextBtn.className = 'islamic-slider-nav next';
+//     nextBtn.innerHTML = '<i class="fas fa-chevron-left"></i>';
+//     nextBtn.setAttribute('aria-label', 'التالي');
+
+//     sliderWrapper.appendChild(prevBtn);
+//     sliderWrapper.appendChild(slidesContainer);
+//     sliderWrapper.appendChild(nextBtn);
+//     grid.appendChild(sliderWrapper);
+
+//     // Slider logic
+//     let currentStart = 0;
+//     const visibleCount = 3;
+//     const total = items.length;
+
+//     function updateSlider() {
+//         const slides = slidesContainer.querySelectorAll('.islamic-slider-slide');
+//         slides.forEach((slide, idx) => {
+//             if (idx >= currentStart && idx < currentStart + visibleCount) {
+//                 slide.style.display = '';
+//             } else {
+//                 slide.style.display = 'none';
+//             }
+//         });
+//         prevBtn.disabled = currentStart === 0;
+//         nextBtn.disabled = currentStart + visibleCount >= total;
+//     }
+
+//     prevBtn.addEventListener('click', () => {
+//         if (currentStart > 0) {
+//             currentStart--;
+//             updateSlider();
+//         }
+//     });
+//     nextBtn.addEventListener('click', () => {
+//         if (currentStart + visibleCount < total) {
+//             currentStart++;
+//             updateSlider();
+//         }
+//     });
+//     updateSlider();
+// }
+
+// function createContentCard(item, index) {
+//     const card = document.createElement('div');
+//     card.className = 'islamic-content-card';
+    
+//     const icon = getIconForContentType(item.type);
+//     const textClass = getTextClassForType(item.type);
+    
+//     card.innerHTML = `
+//         <div class="islamic-content-header">
+//             <div class="islamic-content-icon">
+//                 <i class="fas ${icon}"></i>
+//             </div>
+//             <h3 class="islamic-content-type">${item.type}</h3>
+//         </div>
+//         <p class="islamic-content-text ${textClass}">${item.content}</p>
+//     `;
+    
+//     return card;
+// }
+
+// function getIconForContentType(type) {
+//     const iconMap = {
+//         'آية': 'fa-book-open',
+//         'حديث': 'fa-scroll',
+//         'حكمة': 'fa-lightbulb',
+//         'حكم شرعي': 'fa-balance-scale',
+//         'ذكر': 'fa-pray',
+//         'دعاء': 'fa-hands-praying'
+//     };
+    
+//     return iconMap[type] || 'fa-star';
+// }
+
+// function getTextClassForType(type) {
+//     const classMap = {
+//         'آية': 'ayah',
+//         'حديث': 'hadith',
+//         'حكمة': 'wisdom',
+//         'حكم شرعي': 'ruling',
+//         'ذكر': 'dhikr',
+//         'دعاء': 'dua'
+//     };
+    
+//     return classMap[type] || 'wisdom';
+// }

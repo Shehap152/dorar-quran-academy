@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://dorar-quran-academy.vercel.app/sitemap.xml 
