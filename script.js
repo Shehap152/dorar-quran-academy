@@ -1,50 +1,12 @@
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
     // Initialize all functionality
-    initializeTheme();
     initializeSmoothScrolling();
     initializeAnimations();
     initializeContactForm();
     initializeNavbar();
     initializeLanguageSwitching();
 });
-
-// Theme Toggle Functionality
-function initializeTheme() {
-    const themeToggle = document.getElementById('themeToggle');
-    const body = document.body;
-    
-    // Check for saved theme preference or default to light
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    body.setAttribute('data-theme', savedTheme);
-    updateThemeIcon(savedTheme);
-    
-    themeToggle.addEventListener('click', function() {
-        const currentTheme = body.getAttribute('data-theme');
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        
-        body.setAttribute('data-theme', newTheme);
-        localStorage.setItem('theme', newTheme);
-        updateThemeIcon(newTheme);
-        
-        // Add transition effect
-        body.style.transition = 'all 0.3s ease';
-        setTimeout(() => {
-            body.style.transition = '';
-        }, 300);
-    });
-}
-
-function updateThemeIcon(theme) {
-    const themeToggle = document.getElementById('themeToggle');
-    const icon = themeToggle.querySelector('i');
-    
-    if (theme === 'dark') {
-        icon.className = 'fas fa-sun';
-    } else {
-        icon.className = 'fas fa-moon';
-    }
-}
 
 // Language Switching Functionality
 function initializeLanguageSwitching() {
@@ -277,36 +239,37 @@ function initializeAnimations() {
 
 // Contact Form Handling
 function initializeContactForm() {
-    const contactForm = document.getElementById('contactForm');
-    
-    contactForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData);
-        
-        // Simple validation
-        if (!data.name || !data.email || !data.message) {
-            showNotification('يرجى ملء جميع الحقول المطلوبة', 'error');
-            return;
-        }
-        
-        // Email validation
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(data.email)) {
-            showNotification('يرجى إدخال بريد إلكتروني صحيح', 'error');
-            return;
-        }
-        
-        // Simulate form submission
-        showNotification('جاري إرسال الرسالة...', 'info');
-        
-        setTimeout(() => {
-            showNotification('تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.', 'success');
-            contactForm.reset();
-        }, 2000);
-    });
+    const form = document.querySelector('#contactForm');
+    if (form) {
+        form.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+            
+            // Simple validation
+            if (!data.name || !data.email || !data.message) {
+                showNotification('يرجى ملء جميع الحقول المطلوبة', 'error');
+                return;
+            }
+            
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(data.email)) {
+                showNotification('يرجى إدخال بريد إلكتروني صحيح', 'error');
+                return;
+            }
+            
+            // Simulate form submission
+            showNotification('جاري إرسال الرسالة...', 'info');
+            
+            setTimeout(() => {
+                showNotification('تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.', 'success');
+                form.reset();
+            }, 2000);
+        });
+    }
 }
 
 // Notification System
@@ -458,3 +421,84 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 }); 
+
+// Animated Counters
+function animateCounters() {
+  const counters = document.querySelectorAll('.counter-number');
+  const speed = 40;
+  counters.forEach(counter => {
+    const updateCount = () => {
+      const target = +counter.getAttribute('data-target');
+      const count = +counter.innerText.replace(/\D/g, '');
+      const inc = Math.ceil(target / speed);
+      if (count < target) {
+        counter.innerText = count + inc;
+        setTimeout(updateCount, 30);
+      } else {
+        counter.innerText = target;
+      }
+    };
+    updateCount();
+  });
+}
+// Trigger animation when counters section is in view
+function handleCounterScroll() {
+  const section = document.querySelector('.counters-section');
+  if (!section) return;
+  let started = false;
+  window.addEventListener('scroll', function onScroll() {
+    if (!started && section.getBoundingClientRect().top < window.innerHeight - 100) {
+      animateCounters();
+      started = true;
+      window.removeEventListener('scroll', onScroll);
+    }
+  });
+}
+document.addEventListener('DOMContentLoaded', handleCounterScroll); 
+
+// FAQ Accordion Functionality
+function initFAQAccordion() {
+  const questions = document.querySelectorAll('.faq-question');
+  questions.forEach(btn => {
+    btn.addEventListener('click', function() {
+      const expanded = this.getAttribute('aria-expanded') === 'true';
+      questions.forEach(q => q.setAttribute('aria-expanded', 'false'));
+      if (!expanded) {
+        this.setAttribute('aria-expanded', 'true');
+      }
+    });
+    btn.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        this.click();
+      }
+    });
+  });
+}
+document.addEventListener('DOMContentLoaded', initFAQAccordion); 
+
+// Back to Top Button
+function initBackToTop() {
+  const btn = document.querySelector('.back-to-top');
+  if (!btn) return;
+  btn.style.display = 'none';
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 300) {
+      btn.style.display = 'flex';
+    } else {
+      btn.style.display = 'none';
+    }
+  });
+  btn.addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    btn.blur();
+  });
+  btn.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      btn.blur();
+    }
+  });
+}
+document.addEventListener('DOMContentLoaded', initBackToTop); 
