@@ -42,7 +42,6 @@ body {
     color: var(--dark-gray);
     line-height: 1.6;
     transition: all 0.3s ease;
-    overflow-x: hidden;
 }
 
 .islamic-theme {
@@ -1938,6 +1937,44 @@ html {
     max-width: 100%;
   }
 } 
+
+/* Prevent horizontal overflow in contact section on mobile */
+.modern-contact-section,
+.contact-section,
+.modern-contact-card,
+.contact-form {
+  max-width: 100vw;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+@media (max-width: 600px) {
+  .modern-contact-card,
+  .contact-form {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    border-radius: 0.7rem !important;
+  }
+}
+
+/* Prevent horizontal overflow in about section on mobile */
+.about-section,
+.redesigned-about-section,
+.about-card {
+  max-width: 100vw;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+@media (max-width: 600px) {
+  .about-card {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    border-radius: 0.7rem !important;
+  }
+}
 
 /* Contact form input placeholders: start from right for Arabic */
 .contact-form input[type='tel'],

@@ -424,81 +424,81 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Animated Counters
 function animateCounters() {
-  const counters = document.querySelectorAll('.counter-number');
-  const speed = 40;
-  counters.forEach(counter => {
+const counters = document.querySelectorAll('.counter-number');
+const speed = 40;
+counters.forEach(counter => {
     const updateCount = () => {
-      const target = +counter.getAttribute('data-target');
-      const count = +counter.innerText.replace(/\D/g, '');
-      const inc = Math.ceil(target / speed);
-      if (count < target) {
+    const target = +counter.getAttribute('data-target');
+    const count = +counter.innerText.replace(/\D/g, '');
+    const inc = Math.ceil(target / speed);
+    if (count < target) {
         counter.innerText = count + inc;
         setTimeout(updateCount, 30);
-      } else {
+    } else {
         counter.innerText = target;
-      }
+    }
     };
     updateCount();
-  });
+});
 }
 // Trigger animation when counters section is in view
 function handleCounterScroll() {
-  const section = document.querySelector('.counters-section');
-  if (!section) return;
-  let started = false;
-  window.addEventListener('scroll', function onScroll() {
+const section = document.querySelector('.counters-section');
+if (!section) return;
+let started = false;
+window.addEventListener('scroll', function onScroll() {
     if (!started && section.getBoundingClientRect().top < window.innerHeight - 100) {
-      animateCounters();
-      started = true;
-      window.removeEventListener('scroll', onScroll);
+    animateCounters();
+    started = true;
+    window.removeEventListener('scroll', onScroll);
     }
-  });
+});
 }
 document.addEventListener('DOMContentLoaded', handleCounterScroll); 
 
 // FAQ Accordion Functionality
 function initFAQAccordion() {
-  const questions = document.querySelectorAll('.faq-question');
-  questions.forEach(btn => {
+const questions = document.querySelectorAll('.faq-question');
+questions.forEach(btn => {
     btn.addEventListener('click', function() {
-      const expanded = this.getAttribute('aria-expanded') === 'true';
-      questions.forEach(q => q.setAttribute('aria-expanded', 'false'));
-      if (!expanded) {
+    const expanded = this.getAttribute('aria-expanded') === 'true';
+    questions.forEach(q => q.setAttribute('aria-expanded', 'false'));
+    if (!expanded) {
         this.setAttribute('aria-expanded', 'true');
-      }
+    }
     });
     btn.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
+    if (e.key === 'Enter' || e.key === ' ') {
         e.preventDefault();
         this.click();
-      }
+    }
     });
-  });
+});
 }
 document.addEventListener('DOMContentLoaded', initFAQAccordion); 
 
 // Back to Top Button
 function initBackToTop() {
-  const btn = document.querySelector('.back-to-top');
-  if (!btn) return;
-  btn.style.display = 'none';
-  window.addEventListener('scroll', () => {
+const btn = document.querySelector('.back-to-top');
+if (!btn) return;
+btn.style.display = 'none';
+window.addEventListener('scroll', () => {
     if (window.scrollY > 300) {
-      btn.style.display = 'flex';
+    btn.style.display = 'flex';
     } else {
-      btn.style.display = 'none';
+    btn.style.display = 'none';
     }
-  });
-  btn.addEventListener('click', () => {
+});
+btn.addEventListener('click', () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
     btn.blur();
-  });
-  btn.addEventListener('keydown', function(e) {
+});
+btn.addEventListener('keydown', function(e) {
     if (e.key === 'Enter' || e.key === ' ') {
-      e.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      btn.blur();
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    btn.blur();
     }
-  });
+});
 }
 document.addEventListener('DOMContentLoaded', initBackToTop); 
