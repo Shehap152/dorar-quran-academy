@@ -92,16 +92,15 @@ function initializeAnimations() {
     document.head.appendChild(style);
 }
 
-// Contact Form Handling
+// Contact Form Handling with EmailJS
 function initializeContactForm() {
+    // Initialize EmailJS
+    emailjs.init("XTKh8BS4L8VpcL_Ri"); // Replace with your actual EmailJS public key
+    
     const form = document.querySelector('.beautiful-contact-form');
     if (form) {
         form.addEventListener('submit', function(e) {
             e.preventDefault();
-            
-            // Get form data
-            const formData = new FormData(form);
-            const data = Object.fromEntries(formData);
             
             // Get form inputs
             const fullName = document.getElementById('fullName').value.trim();
@@ -131,23 +130,39 @@ function initializeContactForm() {
                 }
             }
             
-            // Simulate form submission
-            showNotification('جاري إرسال الرسالة...', 'info');
-            
             // Add loading state to submit button
             const submitBtn = form.querySelector('.beautiful-submit-btn');
             const originalText = submitBtn.innerHTML;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>جاري الإرسال...';
             submitBtn.disabled = true;
             
-            setTimeout(() => {
-                showNotification('تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.', 'success');
-                form.reset();
-                
-                // Reset button
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-            }, 2000);
+            // Show sending notification
+            showNotification('جاري إرسال الرسالة...', 'info');
+            
+            // Prepare template parameters for EmailJS
+            const templateParams = {
+                from_name: fullName,
+                from_email: email,
+                from_phone: phone || 'غير محدد',
+                message: message,
+                to_name: 'أكاديمية دُرر القرآن'
+            };
+            
+            // Send email using EmailJS
+            emailjs.send('service_130giw7', 'template_5ie1nej', templateParams)
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    showNotification('تم إرسال رسالتك بنجاح! سنتواصل معك قريباً.', 'success');
+                    form.reset();
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    showNotification('حدث خطأ في إرسال الرسالة. يرجى المحاولة مرة أخرى.', 'error');
+                })
+                .finally(function() {
+                    // Reset button
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                });
         });
     }
     
